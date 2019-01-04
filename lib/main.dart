@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import './demos/colors/colors_demo.dart';
+import './demos/colors/color_demo.dart';
 
 void main() => runApp(MyApp());
 
@@ -34,12 +34,12 @@ class MyHomePage extends StatelessWidget {
               child: Center(
                 child: FlatButton(
                   child: Text(
-                    'Colors Demo',
+                    'Color Demo',
                     style: TextStyle(color: Colors.white),
                   ),
                   onPressed: () {
                     Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => ColorsDemo()));
+                        MaterialPageRoute(builder: (context) => ColorDemo()));
                   },
                 ),
               ),
