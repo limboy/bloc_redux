@@ -1,7 +1,7 @@
 name: bloc_redux
-version: 0.6.1
+version: 0.6.2
 description: >
-  Bloc meets Redux
+  Bloc meets Redux. Replace redux's reducers with blocs and StreamBuilder to make things easier.
 authors:
   - Limboy <limboy.me@gmail.com>
 homepage: https://github.com/lzyy/bloc_redux
