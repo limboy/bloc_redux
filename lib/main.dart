@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import './semi_redux/store_provider.dart';
 import './demos/colors/color_widget.dart';
 import './demos/splash/splash_widget.dart';
+import './demos/shop/shop_widget.dart';
+import './demos/shop/shop_store.dart';
 
 void main() => runApp(MyApp());
 
@@ -8,12 +11,16 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Semi Redux Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
+    return StoreProvider(
+      store: ShopStore(),
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        title: 'Semi Redux Demo',
+        theme: ThemeData(
+          primarySwatch: Colors.blue,
+        ),
+        home: MyHomePage(),
       ),
-      home: MyHomePage(),
     );
   }
 }
@@ -68,6 +75,18 @@ class MyHomePage extends StatelessWidget {
           Expanded(
             child: Container(
               decoration: BoxDecoration(color: Colors.green),
+              child: Center(
+                child: FlatButton(
+                  child: Text(
+                    'Shop Demo',
+                    style: TextStyle(color: Colors.black),
+                  ),
+                  onPressed: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => ShopWidget()));
+                  },
+                ),
+              ),
             ),
           ),
         ],
