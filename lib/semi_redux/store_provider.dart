@@ -3,7 +3,7 @@ import './semi_redux.dart';
 
 Type _typeOf<T>() => T;
 
-class StoreProvider<T extends Store> extends StatefulWidget {
+class StoreProvider<T extends SRStore> extends StatefulWidget {
   StoreProvider({
     Key key,
     @required this.child,
@@ -16,7 +16,7 @@ class StoreProvider<T extends Store> extends StatefulWidget {
   @override
   _StoreProviderState<T> createState() => _StoreProviderState<T>();
 
-  static T of<T extends Store>(BuildContext context) {
+  static T of<T extends SRStore>(BuildContext context) {
     final type = _typeOf<_StoreProviderInherited<T>>();
     _StoreProviderInherited<T> provider =
         context.ancestorInheritedElementForWidgetOfExactType(type)?.widget;
@@ -24,7 +24,7 @@ class StoreProvider<T extends Store> extends StatefulWidget {
   }
 }
 
-class _StoreProviderState<T extends Store> extends State<StoreProvider<T>> {
+class _StoreProviderState<T extends SRStore> extends State<StoreProvider<T>> {
   @override
   void dispose() {
     widget.store?.dispose();

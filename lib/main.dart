@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import './demos/colors/color_demo.dart';
+import './demos/colors/color_widget.dart';
+import './demos/splash/splash_widget.dart';
 
 void main() => runApp(MyApp());
 
@@ -35,11 +36,11 @@ class MyHomePage extends StatelessWidget {
                 child: FlatButton(
                   child: Text(
                     'Color Demo',
-                    style: TextStyle(color: Colors.white),
+                    style: TextStyle(color: Colors.black),
                   ),
                   onPressed: () {
                     Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => ColorDemo()));
+                        MaterialPageRoute(builder: (context) => ColorWidget()));
                   },
                 ),
               ),
@@ -48,6 +49,20 @@ class MyHomePage extends StatelessWidget {
           Expanded(
             child: Container(
               decoration: BoxDecoration(color: Colors.yellow),
+              child: Center(
+                child: FlatButton(
+                  child: Text(
+                    'Splash Demo',
+                    style: TextStyle(color: Colors.black),
+                  ),
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => SplashWidget()));
+                  },
+                ),
+              ),
             ),
           ),
           Expanded(

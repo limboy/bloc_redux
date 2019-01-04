@@ -43,17 +43,16 @@ abstract class SRState<T extends SRStateInput, U extends SRStateOutput> {
 /// like reducers in redux, but don't return a new state.
 /// when they found something needs to change, just update state's input
 /// then state's output will change accordingly.
-typedef Bloc<T extends SRAction, U extends SRState> = void Function(
-    T action, U state);
+typedef Bloc<T extends SRStateInput> = void Function(SRAction action, T input);
 
 /// Store
-abstract class Store<T extends SRAction, U extends SRState>
+abstract class SRStore<T extends SRStateInput, U extends SRState>
     implements Disposable {
-  List<Bloc<T, U>> blocs;
+  List<Bloc<T>> blocs;
   U state;
 
-  void dispatch(T action) {
-    blocs.forEach((f) => f(action, state));
+  void dispatch(SRAction action) {
+    blocs.forEach((f) => f(action, state.input));
   }
 
   dispose() {
