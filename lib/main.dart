@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import './semi_redux/store_provider.dart';
+import './bloc_redux/store_provider.dart';
 import './demos/colors/color_widget.dart';
 import './demos/splash/splash_widget.dart';
 import './demos/shop/shop_widget.dart';

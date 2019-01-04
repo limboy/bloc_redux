@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import './color_store.dart';
-import '../../semi_redux/store_provider.dart';
+import '../../bloc_redux/store_provider.dart';
 import './color_model.dart';
 import 'package:random_color/random_color.dart';
 

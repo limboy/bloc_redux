@@ -1,15 +1,15 @@
 import 'package:rxdart/rxdart.dart';
 import 'package:random_color/random_color.dart';
 import './shop_model.dart';
-import '../../semi_redux/semi_redux.dart';
+import '../../bloc_redux/bloc_redux.dart';
 
 /// Actions
-class AddToBasketAction extends SRAction<ShoppingItem> {}
+class AddToBasketAction extends BRAction<ShoppingItem> {}
 
-class RemoveFromBasketAction extends SRAction<ShoppingItem> {}
+class RemoveFromBasketAction extends BRAction<ShoppingItem> {}
 
 /// State
-class ShopStateInput extends SRStateInput {
+class ShopStateInput extends BRStateInput {
   final basket = BehaviorSubject<List<ShoppingItem>>(seedValue: []);
   final items = BehaviorSubject<List<ShoppingItem>>(seedValue: []);
 
@@ -19,7 +19,7 @@ class ShopStateInput extends SRStateInput {
   }
 }
 
-class ShopStateOutput extends SRStateOutput {
+class ShopStateOutput extends BRStateOutput {
   StreamWithInitialData<List<ShoppingItem>> basket;
   StreamWithInitialData<List<ShoppingItem>> items;
 
@@ -29,7 +29,7 @@ class ShopStateOutput extends SRStateOutput {
   }
 }
 
-class ShopState extends SRState<ShopStateInput, ShopStateOutput> {
+class ShopState extends BRState<ShopStateInput, ShopStateOutput> {
   ShopState() {
     input = ShopStateInput();
     output = ShopStateOutput(input);
@@ -64,7 +64,7 @@ final Bloc<ShopStateInput> removeItemHandler = (action, input) {
 };
 
 /// Store
-class ShopStore extends SRStore<ShopStateInput, ShopState> {
+class ShopStore extends BRStore<ShopStateInput, ShopState> {
   ShopStore() {
     state = ShopState();
     blocs = [addItemHandler, removeItemHandler];

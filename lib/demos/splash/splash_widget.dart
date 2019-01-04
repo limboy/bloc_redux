@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import './splash_store.dart';
 import './splash_model.dart';
-import '../../semi_redux/store_provider.dart';
+import '../../bloc_redux/store_provider.dart';
 
 class SplashWidget extends StatelessWidget {
   @override

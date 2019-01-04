@@ -2,13 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:rxdart/rxdart.dart';
 import 'package:random_color/random_color.dart';
 import './color_model.dart';
-import '../../semi_redux/semi_redux.dart';
+import '../../bloc_redux/bloc_redux.dart';
 
 /// Actions
-class ColorActionSelect extends SRAction<Color> {}
+class ColorActionSelect extends BRAction<Color> {}
 
 /// State
-class ColorStateInput extends SRStateInput {
+class ColorStateInput extends BRStateInput {
   final BehaviorSubject<Color> selectedColor = BehaviorSubject();
   final BehaviorSubject<List<ColorModel>> colors = BehaviorSubject();
 
@@ -18,7 +18,7 @@ class ColorStateInput extends SRStateInput {
   }
 }
 
-class ColorStateOutput extends SRStateOutput {
+class ColorStateOutput extends BRStateOutput {
   StreamWithInitialData<Color> selectedColor;
   StreamWithInitialData<List<ColorModel>> colors;
 
@@ -29,7 +29,7 @@ class ColorStateOutput extends SRStateOutput {
   }
 }
 
-class ColorState extends SRState<ColorStateInput, ColorStateOutput> {
+class ColorState extends BRState<ColorStateInput, ColorStateOutput> {
   ColorState() {
     input = ColorStateInput();
 
@@ -56,7 +56,7 @@ Bloc<ColorStateInput> colorSelectHandler = (action, input) {
 };
 
 /// Store
-class ColorStore extends SRStore<ColorStateInput, ColorState> {
+class ColorStore extends BRStore<ColorStateInput, ColorState> {
   ColorStore() {
     state = ColorState();
     blocs = [colorSelectHandler];

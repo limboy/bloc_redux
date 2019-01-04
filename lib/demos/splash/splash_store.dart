@@ -1,18 +1,18 @@
-import '../../semi_redux/semi_redux.dart';
+import '../../bloc_redux/bloc_redux.dart';
 import './splash_model.dart';
 import 'package:rxdart/rxdart.dart';
 
 /// Actioins
-class ActionLoadInit extends SRAction {}
+class ActionLoadInit extends BRAction {}
 
-class ActionLoadConfig extends SRAction {}
+class ActionLoadConfig extends BRAction {}
 
-class ActionLoadContent extends SRAction {}
+class ActionLoadContent extends BRAction {}
 
-class ActionLoadComplete extends SRAction {}
+class ActionLoadComplete extends BRAction {}
 
 /// State
-class SplashStateInput extends SRStateInput {
+class SplashStateInput extends BRStateInput {
   final items = BehaviorSubject<List<LoadItem>>();
   final loadComplete = BehaviorSubject<bool>(seedValue: false);
 
@@ -34,7 +34,7 @@ class SplashStateInput extends SRStateInput {
   }
 }
 
-class SplashStateOutput extends SRStateOutput {
+class SplashStateOutput extends BRStateOutput {
   StreamWithInitialData<List<LoadItem>> items;
   StreamWithInitialData<bool> loadComplete;
   SplashStateOutput(SplashStateInput input) {
@@ -44,7 +44,7 @@ class SplashStateOutput extends SRStateOutput {
   }
 }
 
-class SplashState extends SRState<SplashStateInput, SplashStateOutput> {
+class SplashState extends BRState<SplashStateInput, SplashStateOutput> {
   SplashState() {
     input = SplashStateInput();
     output = SplashStateOutput(input);
@@ -122,7 +122,7 @@ final Bloc<SplashStateInput> completeHandler = (action, input) {
 };
 
 /// Store
-class SplashStore extends SRStore<SplashStateInput, SplashState> {
+class SplashStore extends BRStore<SplashStateInput, SplashState> {
   SplashStore() {
     _storeInstance = this;
     state = SplashState();
