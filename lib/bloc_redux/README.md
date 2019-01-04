@@ -1,5 +1,7 @@
 # Bloc_Redux
 
+![](https://img.shields.io/pub/v/bloc_redux.svg)
+
 Bloc_Redux is a combination of Bloc and Redux. OK, get it, but why?
 
 Redux is an elegant pattern, which simplify the state management, and makes an unidirectional data flow. but it needs reducers return another state. by default it will make any widget using this state rebuild no matter if it has been modified. optimization can be made like diff to see the real changed properties, but not easy to do in flutter without reflection.
