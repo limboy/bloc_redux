@@ -1,4 +1,4 @@
-import '../../bloc_redux/bloc_redux.dart';
+import '../../bloc_redux/lib/bloc_redux.dart';
 import './splash_model.dart';
 import 'package:rxdart/rxdart.dart';
 

@@ -1,7 +1,7 @@
 import 'package:rxdart/rxdart.dart';
 import 'package:random_color/random_color.dart';
 import './shop_model.dart';
-import '../../bloc_redux/bloc_redux.dart';
+import '../../bloc_redux/lib/bloc_redux.dart';
 
 /// Actions
 class AddToBasketAction extends BRAction<ShoppingItem> {}

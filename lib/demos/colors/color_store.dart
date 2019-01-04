@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:rxdart/rxdart.dart';
 import 'package:random_color/random_color.dart';
 import './color_model.dart';
-import '../../bloc_redux/bloc_redux.dart';
+import '../../bloc_redux/lib/bloc_redux.dart';
 
 /// Actions
 class ColorActionSelect extends BRAction<Color> {}

@@ -1,0 +1,14 @@
+name: bloc_redux
+version: 0.6.0
+description: >
+  Bloc meets Redux
+authors:
+  - Limboy <limboy.me@gmail.com>
+homepage: https://github.com/lzyy/bloc_redux
+
+environment:
+  sdk: '>=2.0.0-dev <3.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
