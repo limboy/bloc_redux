@@ -25,7 +25,12 @@ User trigger a button, it produces an action send to blocs, blocs which are inte
 ## bloc_redux.dart
 
 ```dart
-import 'disposable.dart';
+/// Used by StateInput and Store.
+/// When `StoreProvider` is disposed, it will call `BRStore`.dispose
+/// which will call StateInput.dispose to close stream.
+abstract class Disposable {
+  void dispose();
+}
 
 /// Useful when combined with StreamBuilder
 class StreamWithInitialData<T> {
