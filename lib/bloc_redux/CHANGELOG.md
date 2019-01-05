@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.8.0
+
+- fix typo (action.playload -> action.payload)
+
 ## 0.7.0
 
 - remove `disposable.dart`, inject into `bloc_redux.dart`
