@@ -46,10 +46,10 @@ class ColorState extends BRState<ColorStateInput, ColorStateOutput> {
 /// Blocs
 Bloc<ColorStateInput> colorSelectHandler = (action, input) {
   if (action is ColorActionSelect) {
-    input.selectedColor.add(action.playload);
+    input.selectedColor.add(action.payload);
     var colors = input.colors.value
         .map((colorModel) => colorModel
-          ..isSelected = colorModel.color.value == action.playload.value)
+          ..isSelected = colorModel.color.value == action.payload.value)
         .toList();
     input.colors.add(colors);
   }

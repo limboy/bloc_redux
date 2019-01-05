@@ -24,7 +24,7 @@ class ColorsWidget extends StatelessWidget {
               return GestureDetector(
                 onTap: () {
                   store.dispatch(
-                      ColorActionSelect()..playload = colorModel.color);
+                      ColorActionSelect()..payload = colorModel.color);
                 },
                 child: Container(
                   decoration: BoxDecoration(

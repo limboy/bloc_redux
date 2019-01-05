@@ -39,7 +39,7 @@ class ShopState extends BRState<ShopStateInput, ShopStateOutput> {
 /// Blocs
 final Bloc<ShopStateInput> addItemHandler = (action, input) {
   if (action is AddToBasketAction) {
-    final item = action.playload;
+    final item = action.payload;
     final basket = input.basket.value;
     if (!basket.contains(item)) {
       item.addable = false;
@@ -52,7 +52,7 @@ final Bloc<ShopStateInput> addItemHandler = (action, input) {
 
 final Bloc<ShopStateInput> removeItemHandler = (action, input) {
   if (action is RemoveFromBasketAction) {
-    final item = action.playload;
+    final item = action.payload;
     final basket = input.basket.value;
     if (basket.contains(item)) {
       basket.remove(item);

@@ -49,7 +49,7 @@ class ShopWidget extends StatelessWidget {
                 final item = items[index];
                 return GestureDetector(
                   onTap: () {
-                    store.dispatch(AddToBasketAction()..playload = item);
+                    store.dispatch(AddToBasketAction()..payload = item);
                   },
                   child: Container(
                     decoration: BoxDecoration(color: item.color),
@@ -106,7 +106,7 @@ class _BasketWidget extends StatelessWidget {
                 final item = items[index];
                 return GestureDetector(
                   onTap: () {
-                    store.dispatch(RemoveFromBasketAction()..playload = item);
+                    store.dispatch(RemoveFromBasketAction()..payload = item);
                   },
                   child: Container(
                     decoration: BoxDecoration(color: item.color),

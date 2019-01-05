@@ -18,7 +18,7 @@ class StreamWithInitialData<T> {
 ///
 /// every action should extends this class
 abstract class BRAction<T> {
-  T playload;
+  T payload;
 }
 
 /// State
