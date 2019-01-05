@@ -1,6 +1,12 @@
-import 'disposable.dart';
+/// Used by StateInput and Store.
+/// When `StoreProvider` is disposed, it will call `BRStore`.dispose
+/// which will call StateInput.dispose to close stream.
+abstract class Disposable {
+  void dispose();
+}
 
 /// Useful when combined with StreamBuilder
+/// `initialData` can be set by `BehaviorObject.value`
 class StreamWithInitialData<T> {
   final Stream<T> stream;
   final T initialData;
@@ -46,6 +52,12 @@ abstract class BRState<T extends BRStateInput, U extends BRStateOutput> {
 typedef Bloc<T extends BRStateInput> = void Function(BRAction action, T input);
 
 /// Store
+///
+/// widget use `store.dispatch` to send action
+/// store will iterate all blocs to handle this action
+///
+/// if this is an async action, blocs can dispatch another action
+/// after data has received from remote.
 abstract class BRStore<T extends BRStateInput, U extends BRState>
     implements Disposable {
   List<Bloc<T>> blocs;
